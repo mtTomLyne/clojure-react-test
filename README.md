@@ -1,6 +1,6 @@
 This repo contains the clojure project and react code file for a test app I made
 
-The clojure project sets up a local http server on localhost:8080 that has one GET endpoint at "/square" that takes a single parameter (a number), and returns the square of that number
+The clojure project sets up a local http server on localhost:8080 that has one GET endpoint at "/square" that takes a single parameter (number), and returns the square of that number
 It returns a json object like the following:
 {
 	"input": "7",
