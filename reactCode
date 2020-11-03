@@ -1,0 +1,65 @@
+const testData = [
+];
+
+class Item extends React.Component {
+  render()
+  {
+    const result = this.props;
+    return <div><span>Input: {result.input}</span> &ensp; &ensp;<span>Output: {result.output}</span></div>;
+  }
+}
+
+const ItemList = (props) => (
+  <div>
+    {props.results.map(result => <Item {...result}/>)}
+  </div>
+);
+
+class Form extends React.Component {
+    
+  state = { number: ''}
+  
+  handleSubmit = async(event) => {
+    event.preventDefault()
+    const resp = await axios.get(`http://localhost:8080/square?number=${this.state.number}`);
+    this.props.onSubmit(resp.data)
+  }
+  
+  render()
+  { 
+    return <form onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.number} onChange={event => this.setState({number: event.target.value})} required />
+          <button>Square this number!</button>
+        </form>;
+      
+  }
+}
+
+class App extends React.Component {
+
+  state = {
+    results: testData
+  }
+  
+  addNewResult = (resultData) => {
+    console.log("App", resultData)
+    this.setState(prevState => ({
+      results: [...prevState.results, resultData]
+    }))
+  }
+  
+  render()
+  {
+    return <div>
+      {this.props.title}
+      <Form onSubmit={this.addNewResult}/>
+      <ItemList results={this.state.results}/>
+    </div>;
+  }
+}
+
+
+ReactDOM.render(
+	<App title="Test App That Squares Numbers Or Something" />,
+  mountNode,
+);
