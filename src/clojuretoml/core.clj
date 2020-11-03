@@ -19,7 +19,7 @@
       (println "Incoming request: " req)
       (println "Squaring number " (:number (:params req)))
       (println "Returning number " (str result))
-      ;; there's probably a much, MUCH nicer way to do this... would advise wearing sunglasses when reading the next line of code
+      ;; there's probably a much, MUCH nicer way to do this... would advise wearing protective goggles when reading the next line of code
     (str "{\"input\":\"" (:number (:params req)) "\", \"output\":\"" result "\"}")))
    )
 
