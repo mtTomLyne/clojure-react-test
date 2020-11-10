@@ -23,5 +23,7 @@
                  [ring/ring-json "0.5.0"]
                  [org.apache.httpcomponents/httpclient "4.5.9"]
                  [org.apache.httpcomponents/httpcore "4.4.11"]
-                 [com.amazonaws/aws-java-sdk-dynamodb "1.11.664"]]
+                 [com.amazonaws/aws-java-sdk-dynamodb "1.11.664"]
+                 [org.clojure/data.json "1.0.0"]
+                 [ring/ring-anti-forgery "1.3.0"]]
   :main clojuretoml.core)
